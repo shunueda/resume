@@ -18,6 +18,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "me@shu.nu"
-          git add resume.pdf
+          git add -f resume.pdf
           git commit -m "Auto-generated PDF from LaTeX source" || echo "No changes to commit"
           git push
