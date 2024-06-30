@@ -1,0 +1,27 @@
+name: Build LaTeX to PDF
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: leplusorg/latex:latest
+    strategy:
+      matrix:
+        node-version: [ 20 ]
+        pnpm-version: [ 9 ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ matrix.pnpm-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: corepack enable
+      - run: pnpm install
+      - run: pnpm build
+      - uses: "./"
