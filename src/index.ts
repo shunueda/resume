@@ -1,7 +1,13 @@
-import { DefaultArtifactClient } from '@actions/artifact'
-import * as core from '@actions/core'
+import { GoogleGenerativeAI } from '@google/generative-ai'
+import { config } from 'package.json'
 
-const artifact = new DefaultArtifactClient()
-await artifact.uploadArtifact('test-artifact', ['tsconfig.json'], '.')
+const generativeModel = new GoogleGenerativeAI(
+  process.env.GOOGLE_API_KEY
+).getGenerativeModel({
+  model: config.model
+})
 
-core.info('Hello, world!')
+const prompt = ['Hello, how are you?']
+
+const result = await generativeModel.generateContent(prompt)
+console.log(result.response.text())

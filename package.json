@@ -1,7 +1,11 @@
 {
   "name": "resume",
+  "config": {
+    "model": "gemini-1.5-flash-latest"
+  },
   "scripts": {
-    "build": "ncc build src/index.ts"
+    "start": "node dist/index.js",
+    "build": "ncc build src/index.ts ---minify"
   },
   "dependencies": {
     "@actions/artifact": "^2.1.7",
