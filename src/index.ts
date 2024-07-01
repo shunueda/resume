@@ -49,9 +49,13 @@ const latexFile = `${config.filename}.tex`
 
 writeFileSync(latexFile, result.response.text())
 
+await exec(`latexmk -pdf ${config.filename}.pdf`)
+
 const artifact = new DefaultArtifactClient()
-;['pdf', 'md', 'docx'].forEach(async it => {
-  const outfile = `${config.filename}.${it}`
-  await exec('pandoc', [latexFile, '-o', outfile])
-  await artifact.uploadArtifact(outfile, [outfile], '.')
+;['tex', 'pdf'].forEach(async it => {
+  await artifact.uploadArtifact(
+    `${config.filename}.${it}`,
+    [`${config.filename}.${it}`],
+    '.'
+  )
 })
