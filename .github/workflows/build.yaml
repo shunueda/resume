@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: leplusorg/latex:latest
+      image: pandoc/latex:latest
     strategy:
       matrix:
         node-version: [ 20 ]
@@ -22,4 +22,3 @@ jobs:
       - uses: ./
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-
