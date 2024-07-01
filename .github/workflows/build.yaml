@@ -1,4 +1,4 @@
-name: Build LaTeX to PDF
+name: build
 
 on:
   - push
