@@ -49,7 +49,7 @@ const latexFile = `${config.filename}.tex`
 
 writeFileSync(latexFile, result.response.text())
 
-await exec(`latexmk -pdf ${config.filename}.pdf`)
+await exec(`latexmk -pdf ${latexFile}`)
 
 const artifact = new DefaultArtifactClient()
 ;['tex', 'pdf'].forEach(async it => {

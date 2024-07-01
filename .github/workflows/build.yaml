@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu
+      image: leplusorg/latex:latest
     strategy:
       matrix:
         node-version: [ 20 ]
