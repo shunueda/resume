@@ -45,11 +45,13 @@ Please begin the conversion now.
 
 const result = await generativeModel.generateContent(prompt)
 
-writeFileSync(`${config.filename}.tex`, result.response.text())
+const latexFile = `${config.filename}.tex`
+
+writeFileSync(latexFile, result.response.text())
 
 const artifact = new DefaultArtifactClient()
 ;['pdf', 'md', 'docx'].forEach(async it => {
   const outfile = `${config.filename}.${it}`
-  await exec('pandoc', [config.filename, '-o', outfile])
+  await exec('pandoc', [latexFile, '-o', outfile])
   await artifact.uploadArtifact(outfile, [outfile], '.')
 })
