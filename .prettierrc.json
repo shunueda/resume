@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "prettier-plugin-organize-imports"
+  ],
+  "arrowParens": "avoid",
+  "jsxSingleQuote": true,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none"
+}

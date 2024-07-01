@@ -1,3 +1,7 @@
+import { DefaultArtifactClient } from '@actions/artifact'
 import * as core from '@actions/core'
 
-core.info("Hello, world!")
+const artifact = new DefaultArtifactClient()
+await artifact.uploadArtifact('test-artifact', ['tsconfig.json'], '.')
+
+core.info('Hello, world!')
