@@ -1,5 +1,5 @@
 import { DefaultArtifactClient } from '@actions/artifact'
-import core from '@actions/core'
+import { exec } from '@actions/exec'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import 'dotenv/config'
 import { readFileSync } from 'fs'
@@ -48,10 +48,8 @@ const result = await generativeModel.generateContent(prompt)
 writeFileSync(`${config.filename}.tex`, result.response.text())
 
 const artifact = new DefaultArtifactClient()
-await artifact.uploadArtifact(
-  `${config.filename}.tex`,
-  [`${config.filename}.tex`],
-  '.'
-)
-
-core.info('LaTeX document generated successfully.')
+;['pdf', 'md', 'docx'].forEach(async it => {
+  const outfile = `${config.filename}.${it}`
+  await exec('pandoc', [config.filename, '-o', outfile])
+  await artifact.uploadArtifact(outfile, [outfile], '.')
+})
