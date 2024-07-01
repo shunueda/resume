@@ -20,6 +20,9 @@ importers:
       '@vercel/ncc':
         specifier: ^0.38.1
         version: 0.38.1
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
     devDependencies:
       '@types/node':
         specifier: ^20.14.9
@@ -324,6 +327,10 @@ packages:
   dot-object@2.1.5:
     resolution: {integrity: sha512-xHF8EP4XH/Ba9fvAF2LDd5O3IITVolerVV6xvkxoM8zlGEiCUrggpAnHyOoKJKCrhvPcGATFAUwIujj7bRG5UA==}
     hasBin: true
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -1069,6 +1076,8 @@ snapshots:
     dependencies:
       commander: 6.2.1
       glob: 7.2.3
+
+  dotenv@16.4.5: {}
 
   eastasianwidth@0.2.0: {}
 
