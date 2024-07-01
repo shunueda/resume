@@ -5,7 +5,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "ncc build src/index.ts ---minify"
+    "build": "ncc build src/index.ts"
   },
   "dependencies": {
     "@actions/artifact": "^2.1.7",
