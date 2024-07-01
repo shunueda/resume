@@ -3,4 +3,4 @@ description: export to pdf
 
 runs:
   using: node20
-  main: -- dist/index.js
+  main: dist/index.js
