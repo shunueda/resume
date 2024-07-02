@@ -11,7 +11,7 @@ const content = await generateLatexResume(config.input, config.template)
 
 writeFileSync(latexFile, content)
 
-await exec(`latexmk -pdf ${latexFile}`)
+await exec(`pdflatex ${latexFile}`)
 ;['tex', 'pdf'].forEach(async it => {
   await uploadArtifact(`${config.filename}.${it}`)
 })

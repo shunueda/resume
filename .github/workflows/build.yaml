@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: leplusorg/latex
+      image: texlive/texlive
     strategy:
       matrix:
         node-version: [20]
