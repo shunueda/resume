@@ -16,7 +16,8 @@
     "strict": true,
     "target": "es2018",
     "paths": {
-      "*": ["./*"]
+      "*": ["./*"],
+      "src/*": ["./src/*"],
     }
   },
   "exclude": ["dist", "node_modules"]

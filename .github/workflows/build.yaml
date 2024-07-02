@@ -10,7 +10,7 @@ jobs:
       image: pandoc/latex:latest-ubuntu
     strategy:
       matrix:
-        node-version: [ 20 ]
+        node-version: [20]
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
