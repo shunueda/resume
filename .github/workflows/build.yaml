@@ -18,7 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - run: pnpm install && pnpm build
+      - run: pnpm install --prod
+      - run: pnpm build
       - uses: ./
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
