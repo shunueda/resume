@@ -4,11 +4,13 @@
     "model": "gemini-1.5-flash-latest",
     "input": "assets/resume.md",
     "template": "assets/template.tex",
+    "description": "assets/description.txt",
     "filename": "Shun_Ueda_Resume"
   },
   "scripts": {
     "start": "node dist/index.js",
     "build": "ncc build src/index.ts",
+    "build:local": "ncc build scripts/build.ts && node dist/index.js",
     "test": "ncc build test/index.ts && node dist/index.js",
     "format": "prettier --write ."
   },
@@ -24,8 +26,7 @@
     "dotenv": "^16.4.5",
     "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "typescript": "^5.5.2",
-    "vite-node": "^1.6.0"
+    "typescript": "^5.5.2"
   },
   "packageManager": "pnpm@9.4.0"
 }
